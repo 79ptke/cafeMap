@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #fff;
+    z-index: 2;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: rgba(255,255,255,0.6);
+    z-index: 2;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header ul li {
+    padding: 4px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.header ul li.on,
+.header ul li:hover {
+    border-radius: 20px;
+    background: #01d7e4;
+    font-weight: bold;
+    color: #fff;
+}
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 3;
+}
+.hamMenu {
+    display: none;
+}
+
+.footer .container > p {
+    font-size: 10px;
+}
+
+/*반응형 입니다.*/
+@media screen and (max-width: 1280px) {
+    .container {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .header .logo {
+        width: 180px;
+    }
+    .header ul {
+        flex-direction: column;
+        position: fixed;
+        top: 0px;
+        right: -140px;
+        height: 100vh;
+        padding:80px 20px 20px;
+        background: #fff;
+        transition: 0.5s;
+        z-index: 4;
+    }
+    .bg.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    .hamMenu {
+        display: block;
+    }
+    .hamMenu.on {
+        z-index: 5;
+    }
+    .hamMenu span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #000;
+        border-radius: 2px;
+    }
+    .hamMenu span:nth-child(2) {
+        margin: 6px 0;
+    }
+    .hamMenu.on span:first-child {
+        transform: rotate(-45deg) translate(-1px,1px);
+    }
+    .hamMenu.on span:nth-child(2) {
+        display: none;
+    }
+    .hamMenu.on span:last-child {
+        transform: rotate(45deg);
+    }
+
+
+    .footer {
+        display: none;
+    }
+}
