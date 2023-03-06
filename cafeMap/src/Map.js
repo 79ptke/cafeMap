@@ -26,9 +26,11 @@ const Map=()=>{
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
     const tabLists = document.querySelectorAll('.header ul li');
-
+    tabLists[0].classList.add('on');
     tabLists.forEach(function(tabList){
       var marker = [];
+      makeMarker();
+
       //console.log(tabList);
       tabList.addEventListener('click',function(e){
 
@@ -47,6 +49,11 @@ const Map=()=>{
         }
         e.currentTarget.classList.toggle('on');
    
+        
+        makeMarker();
+      });
+
+      function makeMarker() {
         markerdata.forEach((el) => {
           if(document.querySelector('.header ul li.on').textContent === el.txt) {
             // marker.setMap(map);
@@ -72,8 +79,7 @@ const Map=()=>{
 
 
         });
-
-      });
+      }
 
 
 
