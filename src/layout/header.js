@@ -16,6 +16,11 @@ const Header = () => {
                 document.querySelector('.header ul').style.right = '0';    
             }
         });
+        document.querySelector('.bg').addEventListener('click', function() {
+            document.querySelector('.hamMenu').classList.remove('on');
+            document.querySelector('.bg').classList.remove('show');
+            document.querySelector('.header ul').style.right = '-140px';
+        });
 
     }, [])
 

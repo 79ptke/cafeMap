@@ -23,7 +23,7 @@ const Map=()=>{
     var customOverlay;  // 오버레이
     var contentStr;      
     var zoomControl = new kakao.maps.ZoomControl();
-    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+    map.addControl(zoomControl, kakao.maps.ControlPosition.BOTTOMRIGHT);
 
     const tabLists = document.querySelectorAll('.header ul li');
     tabLists[0].classList.add('on');
@@ -49,7 +49,13 @@ const Map=()=>{
         }
         e.currentTarget.classList.toggle('on');
    
-        
+        // 모바일 메뉴 클릭 시 
+        if(document.querySelector('.hamMenu').classList.contains('on')) {
+          document.querySelector('.hamMenu').classList.remove('on');
+          document.querySelector('.bg').classList.remove('show');
+          document.querySelector('.header ul').style.right = '-140px';
+        }
+
         makeMarker();
       });
 
